@@ -11,13 +11,16 @@ public class SpaceShip : MonoBehaviour
     [Range(-+720, 720)]
     public float rotationSpeed;
     public float speed;
-    
+
+    // Player Movement Variables/....
+    public static int movespeed = 1;
+    public Vector3 userDirection = Vector3.right;
 
     // Use this for initialization
     void Start ()
     {
-     
-	}
+        
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -40,7 +43,8 @@ public class SpaceShip : MonoBehaviour
 
 
         {
-            transform.Translate(Vector2.down * Time.deltaTime);
+            transform.Translate(userDirection * movespeed * Time.deltaTime);
+            //transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
         }
         
 	}
